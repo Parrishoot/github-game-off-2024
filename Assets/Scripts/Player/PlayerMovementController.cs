@@ -3,6 +3,9 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField]
+    private CameraController cameraController;
+
+    [SerializeField]
     private new Rigidbody rigidbody;
 
     [SerializeField]
@@ -31,7 +34,14 @@ public class PlayerMovementController : MonoBehaviour
     void Update()
     {
         // TODO: UPDATE THIS AND MOVE IT TO ITS OWN STATE MACHINE
-        Move(playerInputController.GetMovementVector());
+
+        Vector3 inputVector = playerInputController.GetMovementVector();
+        Vector3 movementVector = Vector3.zero;
+
+        movementVector += inputVector.x * cameraController.Pivot.transform.right;
+        movementVector += inputVector.z * cameraController.Pivot.transform.forward;
+
+        Move(movementVector);
 
         if(playerInputController.GetJump()) {
             jumpedSinceLastFrame = true;
