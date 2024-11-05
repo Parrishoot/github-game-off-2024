@@ -10,6 +10,11 @@ public class CameraController : MonoBehaviour
     public Transform Pivot { get; private set; }
 
 
+    void Start() {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     // Update is called once per frame
     void Update()
     {

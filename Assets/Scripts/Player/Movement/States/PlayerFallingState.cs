@@ -4,7 +4,11 @@ public class PlayerFallingState : PlayerMovementState
 {
     private GroundCheck groundCheck;
 
-    public PlayerFallingState(PlayerMovementStateMachine stateMachine, PlayerMovementController playerMovementController, GroundCheck groundCheck) : base(stateMachine, playerMovementController)
+    private bool leftGround = false;
+
+    private bool leftWall = false;
+
+    public PlayerFallingState(PlayerMovementStateMachine stateMachine, PlayerMovementController playerMovementController, PlayerInputController playerInputController, GroundCheck groundCheck) : base(stateMachine, playerMovementController, playerInputController)
     {
         this.groundCheck = groundCheck;
     }
@@ -16,15 +20,27 @@ public class PlayerFallingState : PlayerMovementState
 
     public override void OnStart()
     {
+        leftGround = false;
+        leftWall = false;
     }
 
     public override void OnUpdate(float deltaTime)
     {
-        MovementController.Move(InputController.GetMovementVector().normalized);
+        MovementController.Move(InputController.GetCameraAdjustedInputVector().normalized);
         MovementController.SetSprinting(InputController.GetSprint());
+    }
 
-        if(MovementController.Rigidbody.linearVelocity.y < 0 && groundCheck.OnGround) {
+    public override void OnFixedUpdate(float fixedDeltaTime)
+    {
+        leftGround = leftGround || !groundCheck.OnGround();
+        leftWall = leftWall || !CheckForWall().HasValue;
+
+        if(leftGround && groundCheck.OnGround()) {
             StateMachine.ChangeState(StateMachine.RunningState);
+        }
+
+        if(leftWall && MovementController.IsFalling && CheckForWall().HasValue) {
+            StateMachine.ChangeState(StateMachine.WallSlideState);
         }
     }
 }

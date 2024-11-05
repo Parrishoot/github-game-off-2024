@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class PlayerRunningState : PlayerMovementState
 {
-    public PlayerRunningState(PlayerMovementStateMachine stateMachine, PlayerMovementController playerMovementController) : base(stateMachine, playerMovementController)
+    private GroundCheck groundCheck;
+
+    public PlayerRunningState(PlayerMovementStateMachine stateMachine, PlayerMovementController playerMovementController, PlayerInputController playerInputController, GroundCheck groundCheck) : base(stateMachine, playerMovementController, playerInputController)
     {
+        this.groundCheck = groundCheck;
     }
 
     public override void OnEnd()
@@ -17,12 +20,21 @@ public class PlayerRunningState : PlayerMovementState
 
     public override void OnUpdate(float deltaTime)
     {
-        MovementController.Move(InputController.GetMovementVector().normalized);
+        MovementController.Move(InputController.GetCameraAdjustedInputVector().normalized);
         MovementController.SetSprinting(InputController.GetSprint());
         
 
         if(InputController.GetJump()) {
             MovementController.Jump();
+            StateMachine.ChangeState(StateMachine.FallingState);
+        }
+    }
+
+    public override void OnFixedUpdate(float fixedDeltaTime)
+    {
+        base.OnFixedUpdate(fixedDeltaTime);
+
+        if(!groundCheck.OnGround()) {
             StateMachine.ChangeState(StateMachine.FallingState);
         }
     }
