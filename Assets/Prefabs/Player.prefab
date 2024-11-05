@@ -150,10 +150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraController: {fileID: 5834430169462331926}
   <Rigidbody>k__BackingField: {fileID: 8205992122145608581}
-  jumpForce: 18
-  movementSpeed: 500
-  speedRampWeight: 0.231
-  sprintAdjustAmount: 1.5
+  jumpForce: 22
+  wallJumpForce: 15
+  movementSpeed: 600
+  speedRampWeight: 0.191
+  sprintAdjustAmount: 2
 --- !u!114 &1927727705041612122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +248,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.52, y: 0.13, z: 1}
+  m_Size: {x: 0.3, y: 0.1, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6188649236395366667
 GameObject:
