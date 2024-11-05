@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    protected IState currentState { get; private set;}
+    public IState CurrentState { get; private set;}
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        currentState?.OnUpdate(Time.deltaTime);
+        CurrentState?.OnUpdate(Time.deltaTime);
     }
 
     protected void FixedUpdate() {
-        currentState?.OnFixedUpdate(Time.fixedDeltaTime);    
+        CurrentState?.OnFixedUpdate(Time.fixedDeltaTime);    
     }
 
     public void ChangeState(IState newState) {
-        currentState?.OnEnd();
+        CurrentState?.OnEnd();
 
-        currentState = newState;
+        CurrentState = newState;
         newState.OnStart();
     }
 }
