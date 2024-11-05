@@ -18,18 +18,15 @@ public class PlayerMovementController : MonoBehaviour
     [Range(0, 1)]
     private float speedRampWeight = .5f;
 
-    private PlayerInputController playerInputController;
+    [SerializeField]
+    [Range(1.1f, 3f)]
+    private float sprintAdjustAmount = 1.5f;
 
     private Vector3 movementVector = Vector3.zero;
 
     private bool jumpedSinceLastFrame = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        playerInputController = new PlayerInputController();
-    }
-
+    private bool isSprinting = false;
 
     private void FixedUpdate() {
         
@@ -40,7 +37,7 @@ public class PlayerMovementController : MonoBehaviour
         frameMovementVector += movementVector.x * cameraController.Pivot.transform.right;
         frameMovementVector += movementVector.z * cameraController.Pivot.transform.forward;
 
-        Vector3 newMovement = Vector3.Lerp(Rigidbody.linearVelocity, frameMovementVector * Time.fixedDeltaTime * movementSpeed, speedRampWeight);
+        Vector3 newMovement = Vector3.Lerp(Rigidbody.linearVelocity, frameMovementVector * Time.fixedDeltaTime * movementSpeed * GetSprintModifier(), speedRampWeight);
         Rigidbody.linearVelocity = new Vector3(newMovement.x, Rigidbody.linearVelocity.y, newMovement.z);
 
         if(jumpedSinceLastFrame) {
@@ -59,8 +56,16 @@ public class PlayerMovementController : MonoBehaviour
         this.jumpedSinceLastFrame = true;
     }
 
+    public void SetSprinting(bool sprinting) {
+        isSprinting = sprinting;
+    }
+    
     private void RestMovements() {
         this.movementVector = Vector3.zero;
         this.jumpedSinceLastFrame = false;
+    }
+
+    private float GetSprintModifier() {
+        return this.isSprinting ? sprintAdjustAmount : 1f;
     }
 }

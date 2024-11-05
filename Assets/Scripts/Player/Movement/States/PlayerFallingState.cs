@@ -11,6 +11,7 @@ public class PlayerFallingState : PlayerMovementState
 
     public override void OnEnd()
     {
+        MovementController.SetSprinting(false);
     }
 
     public override void OnStart()
@@ -19,7 +20,8 @@ public class PlayerFallingState : PlayerMovementState
 
     public override void OnUpdate(float deltaTime)
     {
-        MovementController.Move(InputController.GetMovementVector());
+        MovementController.Move(InputController.GetMovementVector().normalized);
+        MovementController.SetSprinting(InputController.GetSprint());
 
         if(MovementController.Rigidbody.linearVelocity.y < 0 && groundCheck.OnGround) {
             StateMachine.ChangeState(StateMachine.RunningState);

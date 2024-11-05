@@ -12,4 +12,8 @@ public class PlayerInputController
     public bool GetJump() {
         return Input.GetKeyDown(KeyCode.Space);
     }
+
+    public bool GetSprint() {
+        return Input.GetKey(KeyCode.LeftShift);
+    }
 }
