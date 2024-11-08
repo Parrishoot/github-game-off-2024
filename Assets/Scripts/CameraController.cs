@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : Singleton<CameraController>
 {
     [SerializeField]
     private float sensitivity;
@@ -19,5 +19,10 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         Pivot.Rotate(Vector2.up * Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime);
+    }
+
+    public Vector3 GetLookingDirection()
+    {
+        return Pivot.transform.forward;
     }
 }
