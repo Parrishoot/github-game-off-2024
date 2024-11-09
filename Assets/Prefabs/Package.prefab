@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 494091896733492339}
   - component: {fileID: 527721584132379698}
   - component: {fileID: 5074587530595007419}
+  - component: {fileID: 7473674265488905832}
   m_Layer: 0
   m_Name: Package
   m_TagString: Untagged
@@ -182,3 +183,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 527721584132379698}
+--- !u!114 &7473674265488905832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493052133393185363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b713e453815354c9dc9609c5244940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 527721584132379698}
+  packageModelGameObject: {fileID: 4371466443265757540}
+  spawnFlingSpread: 0.2
+  spawnFlingForce: 20
+  spawnFlingTorque: 0.5
+  spawnScaleSpeed: 0.25
