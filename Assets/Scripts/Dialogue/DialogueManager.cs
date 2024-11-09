@@ -10,6 +10,8 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField]
     private DialogueAnimator dialogueAnimator;
 
+    public Action OnDialogueStart;
+
     public Action OnDialogueFinish;
 
     private Dialogue currentDialogue;
@@ -38,6 +40,7 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueAnimator.BeginAnimation(dialogue.Lines[lineNumber++]);
         dialoguePanel.SetActive(true);
         
+        OnDialogueStart?.Invoke();
         dialogueAnimator.OnFinish += CheckDialogueContinue;
     }
 
