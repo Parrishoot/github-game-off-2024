@@ -21,7 +21,7 @@ public abstract class DialogueInteractable : MonoBehaviour, IInteractable
         DialogueManager.Instance.OnDialogueFinish += FinishDialogue;
     }
 
-    private void FinishDialogue() {
+    protected virtual void FinishDialogue() {
 
         ActiveDialogue = null;
         DialogueManager.Instance.OnDialogueFinish -= FinishDialogue;

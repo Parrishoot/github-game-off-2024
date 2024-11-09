@@ -17,7 +17,7 @@ public class InteractionManager : MonoBehaviour
         
         IInteractable interactable = other.GetComponent<IInteractable>();
 
-        if(interactable != null && nextInteractable.Equals(interactable)) {
+        if(interactable != null && nextInteractable != null && nextInteractable.Equals(interactable)) {
             nextInteractable = null;
         }
     }
