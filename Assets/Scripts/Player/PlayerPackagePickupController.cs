@@ -24,6 +24,7 @@ public class PlayerPackagePickupController : Singleton<PlayerPackagePickupContro
         } 
 
         currentPackage = packageInteractable;
+        currentPackage.PickedUp();
 
         currentPackage.Rigidbody.DORotate(Vector3.zero, snapTime).SetEase(Ease.InOutCubic);  
         

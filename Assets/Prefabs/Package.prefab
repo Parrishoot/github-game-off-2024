@@ -201,3 +201,4 @@ MonoBehaviour:
   spawnFlingForce: 20
   spawnFlingTorque: 0.5
   spawnScaleSpeed: 0.25
+  interactable: {fileID: 5074587530595007419}

@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   packageSpawner: {fileID: 3940345159217244658}
   questGoalController: {fileID: 6225936446998170337}
+  enemyParent: {fileID: 5949537771144242097}
 --- !u!1 &2545006958277530575
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +124,7 @@ Transform:
   m_Children:
   - {fileID: 12956870668005162}
   - {fileID: 7216912371137208807}
+  - {fileID: 7982715314553940473}
   m_Father: {fileID: 3095319329642490748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2749226145034562808
@@ -278,6 +280,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3451976723108624182}
+  m_Father: {fileID: 3358717375929678914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5949537771144242097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7982715314553940473}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7982715314553940473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949537771144242097}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 3358717375929678914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2201962813620906953

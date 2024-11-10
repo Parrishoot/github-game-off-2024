@@ -1,25 +1,28 @@
 using System;
 using UnityEngine;
-using UnityEngine.ProBuilder;
 
-public class QuestGoalController : MonoBehaviour
+public class QuestGoalController : PackageWatcher
 {   
-    public Action PackageDelivered { get; set; }
+    public override void SetTargetPackage(PackageManager targetPackage)
+    {
+        base.SetTargetPackage(targetPackage);
 
-    private PackageManager targetPackage;
+        TargetPackage.OnPickup += Activate;
 
-    public void SetTargetPackage(PackageManager targetPackage) {
-        this.targetPackage = targetPackage;
+        TargetPackage.OnDrop += Deactivate;
+        TargetPackage.OnSpotted += Deactivate;
+    }
+
+    protected override void ProcessPackageSpotted()
+    {
+        TargetPackage.DeliverPackage();
+    }
+
+    private void Activate() {
         gameObject.SetActive(true);
     }
 
-    private void OnTriggerEnter(Collider other) {
-        
-        if(other.gameObject.Equals(targetPackage.gameObject)) {
-            PackageDelivered.Invoke();
-            targetPackage.DeliverPackage();
-            gameObject.SetActive(false);
-        }
-
+    private void Deactivate() {
+        gameObject.SetActive(false);
     }
 }

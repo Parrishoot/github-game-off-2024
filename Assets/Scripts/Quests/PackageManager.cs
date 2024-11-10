@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class PackageManager : MonoBehaviour
 {
@@ -23,16 +24,27 @@ public class PackageManager : MonoBehaviour
     [SerializeField]
     private float spawnScaleSpeed = .5f;
 
+    [SerializeField]
+    private PackageInteractable interactable;
+
+    public Action OnPickup { get; set; }
+
+    public Action OnDrop { get; set; }
+
+    public Action OnSpotted { get; set; }
+
     void Start()
     {
+        interactable.OnPickup += () => OnPickup?.Invoke();
+
         packageModelGameObject.transform.localScale = Vector3.zero;
         packageModelGameObject.transform.DOScale(Vector3.one, spawnScaleSpeed).SetEase(Ease.InOutCubic);
 
         // When we first spawn the package, fling it in the air a little
         Vector3 flingVector = new Vector3(
-            Random.Range(-spawnFlingSpread, spawnFlingSpread),
+            UnityEngine.Random.Range(-spawnFlingSpread, spawnFlingSpread),
             1f,
-            Random.Range(-spawnFlingSpread, spawnFlingSpread)
+            UnityEngine.Random.Range(-spawnFlingSpread, spawnFlingSpread)
         );
 
         rigidbody.AddForce(flingVector * spawnFlingForce, ForceMode.Impulse);
@@ -41,6 +53,7 @@ public class PackageManager : MonoBehaviour
 
     public void DeliverPackage() {
         // TODO: ADD REAL LOGIC HERE
+        OnSpotted?.Invoke();
         Destroy(gameObject);
     }
 }
