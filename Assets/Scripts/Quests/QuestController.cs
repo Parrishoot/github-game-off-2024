@@ -61,6 +61,7 @@ public class QuestController : MonoBehaviour
     public void FinishQuest() {
         if(State == QuestState.IN_PROGRESS) {
             State = QuestState.COMPLETE;
+            PackageDeliveredTextController.Instance.ShowText();
         }
     }
 

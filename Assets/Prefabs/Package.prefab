@@ -197,8 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 527721584132379698}
   packageModelGameObject: {fileID: 4371466443265757540}
-  spawnFlingSpread: 0.2
-  spawnFlingForce: 20
+  spawnFlingSpread: 0.5
+  spawnFlingForce: 25
   spawnFlingTorque: 0.5
   spawnScaleSpeed: 0.25
   interactable: {fileID: 5074587530595007419}

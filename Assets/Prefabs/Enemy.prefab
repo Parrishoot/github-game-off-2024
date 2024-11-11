@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6757446543083030986}
   - component: {fileID: 344316510522571936}
+  - component: {fileID: 7679598846173855542}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -115,6 +116,22 @@ MonoBehaviour:
         m_Value:
         - {fileID: 0}
         - {fileID: 0}
+--- !u!114 &7679598846173855542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5416972020078927715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c94efcf9f1f6704389c8a7a2569d569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyVisionController: {fileID: 7180637171223946547}
+  packageSpottedDialogue: {fileID: 11400000, guid: b4a0f7769fe70724c94cc96644d60cb3, type: 2}
+  behaviorGraphAgent: {fileID: 344316510522571936}
+  waitTime: 2
 --- !u!1 &5624372235736636764
 GameObject:
   m_ObjectHideFlags: 0
