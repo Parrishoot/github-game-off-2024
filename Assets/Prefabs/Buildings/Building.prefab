@@ -164,6 +164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounds: {fileID: 1630893375134287352}
   piecesParent: {fileID: 415079870638747294}
-  buildingBasePrefab: {fileID: 2350388881726799792, guid: 5fe8f824a4126bb41a09c51a7c229a91, type: 3}
-  buildingMiddlePrefab: {fileID: 6867920982638735796, guid: 5f32cb38636cb1740b346fb28b71099c, type: 3}
-  buildingTopPrefab: {fileID: 7165829441102274379, guid: d9c48d334e7271f4fb8da98652fa6328, type: 3}
+  buildingBasePrefab: {fileID: 2547304515852315002, guid: 5fe8f824a4126bb41a09c51a7c229a91, type: 3}
+  buildingMiddlePrefab: {fileID: 5030354940188504538, guid: 5f32cb38636cb1740b346fb28b71099c, type: 3}
+  buildingTopPrefab: {fileID: 7637264307772787859, guid: d9c48d334e7271f4fb8da98652fa6328, type: 3}

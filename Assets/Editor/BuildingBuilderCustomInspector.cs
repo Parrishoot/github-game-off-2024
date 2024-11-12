@@ -13,6 +13,8 @@ public class ColliderCreatorEditor : Editor {
 
         DrawDefaultInspector();
 
+        EditorGUILayout.Space(20f);
+
         if(GUILayout.Button("Update Building Height")) {
 	        buildingBuilder.UpdateBuildingHeight();
         }
