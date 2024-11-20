@@ -7,6 +7,9 @@ public class PackageInteractable : MonoBehaviour, IInteractable
     [field:SerializeReference]
     public Rigidbody Rigidbody;
 
+    [field:SerializeField]
+    public PackageManager Manager { get; private set; }
+
     public Action OnPickup { get; set; }
 
     public void Interact()
@@ -15,6 +18,6 @@ public class PackageInteractable : MonoBehaviour, IInteractable
     }
 
     public void PickedUp() {
-        OnPickup?.Invoke();
+        Manager.OnPickup?.Invoke();
     }
 }

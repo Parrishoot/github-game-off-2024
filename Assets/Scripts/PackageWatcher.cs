@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class PackageWatcher : MonoBehaviour
@@ -13,15 +14,24 @@ public abstract class PackageWatcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         
-        PackageManager otherPackage = other.GetComponent<PackageManager>();
-
-        if(otherPackage == null) {
+        if(TargetPackage == null) {
             return;
         }
 
-        if(otherPackage.Equals(TargetPackage)) {
+        PackageManager otherPackage = other.GetComponent<PackageManager>();
+
+        if(TargetPackage.Equals(otherPackage)) {
             ProcessPackageSpotted();
             OnPackageSpotted?.Invoke();
+            return;
+        }
+
+        PlayerPackagePickupController pickupController = other.GetComponentInChildren<PlayerPackagePickupController>();
+
+        if(pickupController != null && pickupController.CurrentPackage != null && TargetPackage.Equals(pickupController.CurrentPackage.Manager)) {
+            ProcessPackageSpotted();
+            OnPackageSpotted?.Invoke();
+            return;
         }
 
     }

@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class QuestGoalController : PackageWatcher
 {   
+    [SerializeField]
+    private MeshRenderer model;
+
     public override void SetTargetPackage(PackageManager targetPackage)
     {
         base.SetTargetPackage(targetPackage);
@@ -19,10 +22,10 @@ public class QuestGoalController : PackageWatcher
     }
 
     private void Activate() {
-        gameObject.SetActive(true);
+        model.enabled = true;
     }
 
     private void Deactivate() {
-        gameObject.SetActive(false);
+        model.enabled = false;
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1705604570615106338}
   - component: {fileID: 6943907015301145626}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 6757446543083030986}
   - component: {fileID: 344316510522571936}
   - component: {fileID: 7679598846173855542}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 6576073636976823943}
   - component: {fileID: 8539814567261455413}
   - component: {fileID: 7180637171223946547}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 9178214970250963258}
   - component: {fileID: 1821067403685528408}
   - component: {fileID: 8444691372540419887}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyAgent
   m_TagString: Untagged
   m_Icon: {fileID: 0}

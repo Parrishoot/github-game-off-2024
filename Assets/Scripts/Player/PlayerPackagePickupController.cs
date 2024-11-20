@@ -9,40 +9,45 @@ public class PlayerPackagePickupController : Singleton<PlayerPackagePickupContro
 
     [SerializeField]
     private float throwForce = 10f;
-    
-    [SerializeField]
-    private float snapTime = .5f;
 
-    private PackageInteractable currentPackage;
+    [SerializeField]
+    private GameObject packageModel;
+   
+    public PackageInteractable CurrentPackage { get; private set; }
 
     private bool throwNextFixedUpdate = false;
 
     public void Pickup(PackageInteractable packageInteractable) {
 
-        if(currentPackage != null) {
+        if(CurrentPackage != null) {
             return;
         } 
 
-        currentPackage = packageInteractable;
-        currentPackage.PickedUp();
+        packageModel.SetActive(true);
 
-        currentPackage.Rigidbody.DORotate(Vector3.zero, snapTime).SetEase(Ease.InOutCubic);  
-        
-        currentPackage
-            .Rigidbody
-            .DOMove(transform.position, snapTime)
-            .SetEase(Ease.InOutCubic)
-            .OnComplete(SetupRigidbodyHold);
+        CurrentPackage = packageInteractable;
+        CurrentPackage.PickedUp();
+
+        CurrentPackage.gameObject.SetActive(false);
+        CurrentPackage.transform.SetParent(transform, false);
+        CurrentPackage.transform.localPosition = Vector3.zero;
+
+        CurrentPackage.Manager.OnSpotted += () => {
+            packageModel.SetActive(false);
+            CurrentPackage = null;
+        };
 
     }
 
     private void SetupRigidbodyHold() {
-        currentPackage.Rigidbody.freezeRotation = true;
-        currentPackage.Rigidbody.useGravity = false;
+        CurrentPackage.Rigidbody.freezeRotation = true;
+        CurrentPackage.Rigidbody.useGravity = false;
     }
 
     public void Throw() {
-        throwNextFixedUpdate = true;
+        if(CurrentPackage != null) {
+            throwNextFixedUpdate = true;
+        }
     }
 
     public void Update() {
@@ -55,22 +60,26 @@ public class PlayerPackagePickupController : Singleton<PlayerPackagePickupContro
 
     private void FixedUpdate() {
         
-        if(currentPackage == null) {
+        if(CurrentPackage == null) {
             return; 
         }
 
         if(!throwNextFixedUpdate) {
-            currentPackage.Rigidbody.linearVelocity = playerRigidbody.linearVelocity;
+            CurrentPackage.Rigidbody.linearVelocity = playerRigidbody.linearVelocity;
             return;
         }
 
+        CurrentPackage.gameObject.SetActive(true);
+        packageModel.SetActive(false);
+
         throwNextFixedUpdate = false;
 
-        currentPackage.Rigidbody.freezeRotation = false;
-        currentPackage.Rigidbody.useGravity = true;
+        CurrentPackage.Rigidbody.freezeRotation = false;
+        CurrentPackage.Rigidbody.useGravity = true;
 
-        currentPackage.Rigidbody.AddForce(throwForce * CameraController.Instance.GetLookingDirection(), ForceMode.Impulse);
+        CurrentPackage.Rigidbody.AddForce(throwForce * CameraController.Instance.GetLookingDirection(), ForceMode.Impulse);
+        CurrentPackage.Manager.OnDrop?.Invoke();
 
-        currentPackage = null;
+        CurrentPackage = null;
     }
 }

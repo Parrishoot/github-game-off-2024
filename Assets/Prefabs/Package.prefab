@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 527721584132379698}
+  <Manager>k__BackingField: {fileID: 7473674265488905832}
 --- !u!114 &7473674265488905832
 MonoBehaviour:
   m_ObjectHideFlags: 0

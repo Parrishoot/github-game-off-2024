@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Unity.VisualScripting;
 
 public class PackageManager : MonoBehaviour
 {
@@ -24,9 +25,6 @@ public class PackageManager : MonoBehaviour
     [SerializeField]
     private float spawnScaleSpeed = .5f;
 
-    [SerializeField]
-    private PackageInteractable interactable;
-
     public Action OnPickup { get; set; }
 
     public Action OnDrop { get; set; }
@@ -35,8 +33,6 @@ public class PackageManager : MonoBehaviour
 
     void Start()
     {
-        interactable.OnPickup += () => OnPickup?.Invoke();
-
         packageModelGameObject.transform.localScale = Vector3.zero;
         packageModelGameObject.transform.DOScale(Vector3.one, spawnScaleSpeed).SetEase(Ease.InOutCubic);
 
@@ -54,6 +50,9 @@ public class PackageManager : MonoBehaviour
     public void DeliverPackage() {
         // TODO: ADD REAL LOGIC HERE
         OnSpotted?.Invoke();
-        Destroy(gameObject);
+
+        if(!gameObject.IsDestroyed()) {
+            Destroy(gameObject);
+        }
     }
 }
