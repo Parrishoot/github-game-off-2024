@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cbf978ac3287d4890e0ad0ae0843f7, type: 3}
+  m_Name: ConspiracyTheoryPostQuest
+  m_EditorClassIdentifier: 
+  <Lines>k__BackingField:
+  - Oh thank god, you did it! We're gonna blow the load on this whole operation!
+  - '*Bzzt Bzzt*'
+  - Hang on... this news alert...
+  - ...They've just announced the beginning of their 6G rollout plan...
+  - ...dammit.
