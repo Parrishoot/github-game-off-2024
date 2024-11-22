@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: TestQuest_Pre
   m_EditorClassIdentifier: 
   <Lines>k__BackingField:
-  - I cannot WAIT for this quest to begin!
-  - PRE QUEST
+  - Quick! I need to deliver this package to my good friend Mike!
+  - I'd do it myself, but my Pokemon TCG Pocket stamina just refilled.
+  - He lives in the North End!
