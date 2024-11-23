@@ -23,9 +23,11 @@ public class QuestGoalController : PackageWatcher
 
     private void Activate() {
         model.enabled = true;
+        ArrowController.Instance.SetActiveGoal(this);
     }
 
     private void Deactivate() {
         model.enabled = false;
+        ArrowController.Instance.Reset();
     }
 }

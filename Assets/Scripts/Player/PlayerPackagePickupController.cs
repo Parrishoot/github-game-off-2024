@@ -15,6 +15,8 @@ public class PlayerPackagePickupController : Singleton<PlayerPackagePickupContro
    
     public PackageInteractable CurrentPackage { get; private set; }
 
+    public Action<PackageManager> OnPackagePickup;
+
     private bool throwNextFixedUpdate = false;
 
     public void Pickup(PackageInteractable packageInteractable) {
@@ -37,6 +39,7 @@ public class PlayerPackagePickupController : Singleton<PlayerPackagePickupContro
             CurrentPackage = null;
         };
 
+        OnPackagePickup?.Invoke(CurrentPackage.Manager);
     }
 
     private void SetupRigidbodyHold() {
