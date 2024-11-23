@@ -20,6 +20,9 @@ public class MyPatrolBehavior : MonoBehaviour
     [SerializeField]
     private float waitTime = 0f;
 
+    [SerializeField]
+    private bool faceMovingDirection = false;
+
     private Timer waitTimer;
 
     private List<Transform> waypoints = new List<Transform>();
@@ -42,6 +45,10 @@ public class MyPatrolBehavior : MonoBehaviour
     {
         waitTimer = null;
         targetPos = waypoints[(targetIndex++) % waypoints.Count].position;
+
+        if(faceMovingDirection) {
+            agent.transform.LookAt(targetPos);
+        }
     }
 
     // Update is called once per frame

@@ -40,12 +40,12 @@ Material:
     m_Floats:
     - _Distance: 0
     - _IntersectionThickness: 0.37
-    - _Occlusion: 0.946
+    - _Occlusion: 0
     - _Offset: 0.59
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Thickness: -3.3
-    - _Threshold: 0.75
+    - _Thickness: 0.02
+    - _Threshold: 0.76
     - _WaveHeight: 10
     - _WaveScale: 15.82
     - _WaveSpeed: 0.01

@@ -18,6 +18,8 @@ public class QuestController : MonoBehaviour
 
     public PackageManager Package { get; private set; }
 
+    public Action OnQuestStart { get; set; }
+
     public enum QuestState {
         READY,
         IN_PROGRESS,
@@ -47,6 +49,7 @@ public class QuestController : MonoBehaviour
         PackageManager packageManager = packageSpawner.Spawn().GetComponent<PackageManager>();
 
         SetupWatchers(packageManager);
+        OnQuestStart?.Invoke();
     }
 
     private void SetupWatchers(PackageManager packageManager)

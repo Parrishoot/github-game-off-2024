@@ -701,6 +701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6533929050034266037}
   rigidbody: {fileID: 8205992122145608581}
+  groundCheck: {fileID: 4525071295321054593}
 --- !u!4 &6352564159424393652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bd8a6f7cf96802a4bb433c297554ccc9, type: 3}

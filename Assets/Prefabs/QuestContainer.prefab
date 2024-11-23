@@ -366,40 +366,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6613560109215879343, guid: 6ab7a08d1b658a74797bf29d7a4a13d8, type: 3}
+      propertyPath: questController
+      value: 
+      objectReference: {fileID: 7040543519880921865}
+    - target: {fileID: 6762400110005025924, guid: 6ab7a08d1b658a74797bf29d7a4a13d8, type: 3}
+      propertyPath: questController
+      value: 
+      objectReference: {fileID: 7040543519880921865}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2207038384938894563, guid: 6ab7a08d1b658a74797bf29d7a4a13d8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8911697881586564565}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1646877893736474009, guid: 6ab7a08d1b658a74797bf29d7a4a13d8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4852116850782705485}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab7a08d1b658a74797bf29d7a4a13d8, type: 3}
 --- !u!4 &12956870668005162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2207038384938894563, guid: 6ab7a08d1b658a74797bf29d7a4a13d8, type: 3}
   m_PrefabInstance: {fileID: 2201962813620906953}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &600125795392114256 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1646877893736474009, guid: 6ab7a08d1b658a74797bf29d7a4a13d8, type: 3}
-  m_PrefabInstance: {fileID: 2201962813620906953}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4852116850782705485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600125795392114256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fa7ad4d607c62f4981d4b97760e0294, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questController: {fileID: 7040543519880921865}
-  questTriggerDialogue: {fileID: 11400000, guid: 39b1ac7e8ec13f3449aaf792feb9861f, type: 2}
-  questInProgressDialogue: {fileID: 11400000, guid: d55cddf66083e514899786dd2654acfd, type: 2}
-  questCompleteDialogue: {fileID: 11400000, guid: 36bb21cf786058446a595fcf9f0e243a, type: 2}
