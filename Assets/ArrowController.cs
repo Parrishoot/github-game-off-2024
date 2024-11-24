@@ -31,7 +31,7 @@ public class ArrowController : Singleton<ArrowController>
         }
         
         Vector3 targetLocation = currentGoal.transform.position;
-        targetLocation.y = transform.position.y;
+        // targetLocation.y = transform.position.y;
         transform.LookAt(targetLocation);
     } 
 }

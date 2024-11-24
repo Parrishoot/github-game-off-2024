@@ -54,10 +54,13 @@ public class MyPatrolBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        waitTimer?.DecreaseTime(Time.deltaTime);
+        if(waitTimer != null) {
+            waitTimer.DecreaseTime(Time.deltaTime);
+            return;
+        }
 
         // Check if we hit our next target
-        if(Vector3.Distance(targetPos, agent.transform.position) <= DISTANCE_THRESHOLD && waitTimer == null) {
+        if(Vector3.Distance(targetPos, agent.transform.position) <= DISTANCE_THRESHOLD) {
 
             if(waitTime != 0) {
                 waitTimer = new Timer(waitTime);
