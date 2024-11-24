@@ -1,3 +1,4 @@
+using System;
 using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,7 +31,14 @@ public class EnemySpottedSequenceController : MonoBehaviour
         waitTimer = new Timer(waitTime);
         
         // TODO: Maybe don't restart the scene here?
+        SceneTransitionManager.Instance.OnTransitionOutFinished += ProcessTransition;
         waitTimer.OnTimerFinished += SceneTransitionManager.Instance.TransitionOut;
+    }
+
+    private void ProcessTransition()
+    {
+        DialogueManager.Instance.ContinueDialogue();
+        SceneTransitionManager.Instance.OnTransitionOutFinished -= ProcessTransition;
     }
 
     void Update() {
