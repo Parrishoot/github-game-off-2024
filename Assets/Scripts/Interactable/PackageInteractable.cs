@@ -12,6 +12,8 @@ public class PackageInteractable : MonoBehaviour, IInteractable
 
     public Action OnPickup { get; set; }
 
+    public string GetText() => "Pick Up";
+
     public void Interact()
     {
         PlayerPackagePickupController.Instance.Pickup(this);

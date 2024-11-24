@@ -40,6 +40,7 @@ public class PlayerPackagePickupController : Singleton<PlayerPackagePickupContro
         };
 
         OnPackagePickup?.Invoke(CurrentPackage.Manager);
+        InteractTextController.Instance.Disable();
     }
 
     private void SetupRigidbodyHold() {

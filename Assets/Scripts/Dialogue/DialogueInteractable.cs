@@ -27,4 +27,6 @@ public abstract class DialogueInteractable : MonoBehaviour, IInteractable
         DialogueManager.Instance.OnDialogueFinish -= FinishDialogue;
 
     }
+
+    public string GetText() => "Speak";
 }

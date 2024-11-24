@@ -10,6 +10,7 @@ public class InteractionManager : MonoBehaviour
 
         if(interactable != null) {
             nextInteractable = interactable;
+            InteractTextController.Instance.SetText(nextInteractable.GetText());
         }
     }
 
@@ -19,11 +20,12 @@ public class InteractionManager : MonoBehaviour
 
         if(interactable != null && nextInteractable != null && nextInteractable.Equals(interactable)) {
             nextInteractable = null;
+            InteractTextController.Instance.Disable();
         }
     }
 
     private void Update() {
-
+        
         // TODO: Map this to actual input
         if(Input.GetKeyDown(KeyCode.E)) {
             nextInteractable?.Interact();

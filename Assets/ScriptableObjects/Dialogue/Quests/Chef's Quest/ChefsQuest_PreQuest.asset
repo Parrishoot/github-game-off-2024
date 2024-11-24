@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cbf978ac3287d4890e0ad0ae0843f7, type: 3}
+  m_Name: ChefsQuest_PreQuest
+  m_EditorClassIdentifier: 
+  <Lines>k__BackingField:
+  - MAMA MIA - What am I-a gonna do?
+  - These tomato's rights activists are-a after me!
+  - They say if they catch me, they'll leak-a my famous stromboli recipe online for
+    everyone to-a consume!
+  - Mr. Postal Man, can you do this-a big meatball a huge favor and get this recipe
+    to my restaurant without getting caught?
+  - If you can, it's free ravioli for life!
