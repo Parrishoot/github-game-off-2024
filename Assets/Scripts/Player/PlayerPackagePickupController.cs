@@ -21,7 +21,7 @@ public class PlayerPackagePickupController : Singleton<PlayerPackagePickupContro
 
     public void Pickup(PackageInteractable packageInteractable) {
 
-        if(CurrentPackage != null) {
+        if(CurrentPackage != null || packageInteractable == null) {
             return;
         } 
 

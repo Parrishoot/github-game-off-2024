@@ -26,10 +26,9 @@ public class PackageDeliveredTextController : Singleton<PackageDeliveredTextCont
         packageTransform.anchoredPosition = new Vector2(-OFFSCREEN_POS, packageTransform.anchoredPosition.y);
         deliveredTransform.anchoredPosition = new Vector2(OFFSCREEN_POS, deliveredTransform.anchoredPosition.y);
 
-        packageTransform.gameObject.SetActive(true);
-        deliveredTransform.gameObject.SetActive(true);
-
         DOTween.Sequence()
+            .AppendCallback(() => packageTransform.gameObject.SetActive(true))
+            .AppendCallback(() => deliveredTransform.gameObject.SetActive(true))
             .Append(packageTransform.DOAnchorPosX(0f, totalTime / 4).SetEase(Ease.InOutCubic))
             .Join(deliveredTransform.DOAnchorPosX(0f, totalTime / 4).SetEase(Ease.InOutCubic))
             .AppendInterval(totalTime / 2)
