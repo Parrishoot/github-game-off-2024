@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d37ece7319f664fbabd3a27f0776a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questController: {fileID: 0}
 --- !u!1 &3549157249879950387
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,8 +307,14 @@ MonoBehaviour:
   questTriggerDialogue: {fileID: 11400000, guid: 39b1ac7e8ec13f3449aaf792feb9861f, type: 2}
   questInProgressDialogue: {fileID: 11400000, guid: d55cddf66083e514899786dd2654acfd, type: 2}
   questCompleteDialogue: {fileID: 11400000, guid: 36bb21cf786058446a595fcf9f0e243a, type: 2}
+  collider: {fileID: 7082350416030856140}
 --- !u!4 &2207038384938894563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1560268887664672103, guid: 6f0e58786283cd34a99f3da622d58f13, type: 3}
+  m_PrefabInstance: {fileID: 794825955648993668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7082350416030856140 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7588101185658948168, guid: 6f0e58786283cd34a99f3da622d58f13, type: 3}
   m_PrefabInstance: {fileID: 794825955648993668}
   m_PrefabAsset: {fileID: 0}

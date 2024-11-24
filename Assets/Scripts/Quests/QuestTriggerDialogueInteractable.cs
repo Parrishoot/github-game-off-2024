@@ -14,6 +14,14 @@ public class QuestTriggerDialogueInteractable : DialogueInteractable
     [SerializeField]
     private Dialogue questCompleteDialogue;
 
+    [SerializeField]
+    private new Collider collider;
+
+    void Start() {
+        questController.OnQuestLock += () => collider.enabled = false;
+        questController.OnQuestUnlock += () => collider.enabled = true;
+    }
+
     public override Dialogue GetDialogue() {
         // Return the appropriate dialogue depending on the progress of the quest
         return questController.State switch {

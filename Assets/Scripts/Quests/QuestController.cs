@@ -14,13 +14,23 @@ public class QuestController : MonoBehaviour
     [SerializeField]
     private GameObject enemyParent;
 
+    [SerializeField]
+    private QuestController dependency;
+
     private List<EnemyVisionController> enemies;
 
     public PackageManager Package { get; private set; }
 
+    public Action OnQuestLock { get; set; }
+
+    public Action OnQuestUnlock { get; set; }
+
     public Action OnQuestStart { get; set; }
 
+    public Action OnQuestComplete { get; set; }
+
     public enum QuestState {
+        LOCKED,
         READY,
         IN_PROGRESS,
         COMPLETE
@@ -29,6 +39,12 @@ public class QuestController : MonoBehaviour
     public QuestState State { get; private set; } = QuestState.READY;
 
     void Start() {
+
+        if(dependency != null) {
+            State = QuestState.LOCKED;
+            OnQuestLock?.Invoke();
+            dependency.OnQuestComplete += Unlock;
+        }
 
         enemies = enemyParent.GetComponentsInChildren<EnemyVisionController>().ToList();
 
@@ -61,10 +77,16 @@ public class QuestController : MonoBehaviour
         questGoalController.SetTargetPackage(packageManager);
     }
 
+    public void Unlock() {
+        State = QuestState.READY;
+        OnQuestUnlock?.Invoke();
+    }
+
     public void FinishQuest() {
         if(State == QuestState.IN_PROGRESS) {
             State = QuestState.COMPLETE;
             PackageDeliveredTextController.Instance.ShowText();
+            OnQuestComplete?.Invoke();
         }
     }
 
