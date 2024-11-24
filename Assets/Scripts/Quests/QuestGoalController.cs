@@ -14,6 +14,8 @@ public class QuestGoalController : PackageWatcher
 
         TargetPackage.OnDrop += Deactivate;
         TargetPackage.OnSpotted += Deactivate;
+        TargetPackage.OnLost += Deactivate;
+        SceneTransitionManager.Instance.OnTransitionOutFinished += Deactivate;
     }
 
     protected override void ProcessPackageSpotted()

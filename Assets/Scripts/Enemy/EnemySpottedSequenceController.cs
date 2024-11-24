@@ -1,4 +1,3 @@
-using DG.Tweening;
 using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -31,12 +30,7 @@ public class EnemySpottedSequenceController : MonoBehaviour
         waitTimer = new Timer(waitTime);
         
         // TODO: Maybe don't restart the scene here?
-        SceneTransitionManager.Instance.OnTransitionFinished += RestartScene;
         waitTimer.OnTimerFinished += SceneTransitionManager.Instance.TransitionOut;
-    }
-
-    private void RestartScene() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void Update() {

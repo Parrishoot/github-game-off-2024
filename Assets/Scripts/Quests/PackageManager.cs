@@ -31,6 +31,8 @@ public class PackageManager : MonoBehaviour
 
     public Action OnSpotted { get; set; }
 
+    public Action OnLost { get; set; }
+
     void Start()
     {
         packageModelGameObject.transform.localScale = Vector3.zero;
@@ -54,5 +56,9 @@ public class PackageManager : MonoBehaviour
         if(!gameObject.IsDestroyed()) {
             Destroy(gameObject);
         }
+    }
+
+    public void Lose() {
+        OnLost?.Invoke();
     }
 }

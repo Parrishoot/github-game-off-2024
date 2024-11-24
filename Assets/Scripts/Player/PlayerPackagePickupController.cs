@@ -41,6 +41,8 @@ public class PlayerPackagePickupController : Singleton<PlayerPackagePickupContro
 
         OnPackagePickup?.Invoke(CurrentPackage.Manager);
         InteractTextController.Instance.Disable();
+
+        SceneTransitionManager.Instance.OnTransitionOutFinished += Reset;
     }
 
     private void SetupRigidbodyHold() {
@@ -85,5 +87,15 @@ public class PlayerPackagePickupController : Singleton<PlayerPackagePickupContro
         CurrentPackage.Manager.OnDrop?.Invoke();
 
         CurrentPackage = null;
+    }
+
+    void Reset() {
+
+        if(CurrentPackage != null) {
+            Destroy(CurrentPackage);
+        }
+        
+        CurrentPackage = null;
+        packageModel.SetActive(false);
     }
 }

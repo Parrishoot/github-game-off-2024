@@ -13,7 +13,9 @@ public class SceneTransitionManager : Singleton<SceneTransitionManager>
 
     private const float MAX_SIZE = 1500f;
 
-    public Action OnTransitionFinished { get; set; }
+    public Action OnTransitionInFinished { get; set; }
+
+    public Action OnTransitionOutFinished { get; set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,8 +29,7 @@ public class SceneTransitionManager : Singleton<SceneTransitionManager>
             .DOSizeDelta(new Vector2(0f, 0f), transitionTime)
             .SetEase(Ease.InOutCubic)
             .OnComplete(() => {
-                OnTransitionFinished?.Invoke();
-                OnTransitionFinished = null;
+                OnTransitionInFinished?.Invoke();
             });
     }
 
@@ -37,8 +38,7 @@ public class SceneTransitionManager : Singleton<SceneTransitionManager>
             .DOSizeDelta(new Vector2(MAX_SIZE, MAX_SIZE), transitionTime)
             .SetEase(Ease.InOutCubic)
             .OnComplete(() => {
-                OnTransitionFinished?.Invoke();
-                OnTransitionFinished = null;
+                OnTransitionOutFinished?.Invoke();
             });
     }
 }

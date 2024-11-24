@@ -116,7 +116,6 @@ MonoBehaviour:
   spawnFlingForce: 25
   spawnFlingTorque: 0.5
   spawnScaleSpeed: 0.25
-  interactable: {fileID: 5074587530595007419}
 --- !u!1001 &3543852151232637223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,6 +167,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2e403cbd7e698b44d97ae2df0cc03ba2, type: 3}
       propertyPath: m_Name
       value: package
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2e403cbd7e698b44d97ae2df0cc03ba2, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

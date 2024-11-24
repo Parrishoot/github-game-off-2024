@@ -53,6 +53,8 @@ public class QuestController : MonoBehaviour
         foreach(EnemyVisionController enemy in enemies) {
             enemy.OnPackageSpotted += FailQuest;
         }
+
+        SceneTransitionManager.Instance.OnTransitionOutFinished += CheckSpawnPackage;
     }
 
     public void StartQuest() {
@@ -61,11 +63,24 @@ public class QuestController : MonoBehaviour
             return;
         }
 
+        SpawnPackage();
+
         State = QuestState.IN_PROGRESS;
+        OnQuestStart?.Invoke();
+    }
+
+    private void SpawnPackage() {
+
+        if(Package != null) {
+            Destroy(Package.gameObject);
+        }
+
         PackageManager packageManager = packageSpawner.Spawn().GetComponent<PackageManager>();
+        packageManager.OnLost += SpawnPackage;
 
         SetupWatchers(packageManager);
-        OnQuestStart?.Invoke();
+
+        Package = packageManager;
     }
 
     private void SetupWatchers(PackageManager packageManager)
@@ -94,5 +109,14 @@ public class QuestController : MonoBehaviour
         if(State == QuestState.IN_PROGRESS) {
             State = QuestState.READY;
         }
+    }
+    
+    public void CheckSpawnPackage() {
+
+        if(State != QuestState.IN_PROGRESS) {
+            return;
+        }
+
+        SpawnPackage();
     }
 }
