@@ -11,7 +11,7 @@ public class SceneTransitionManager : Singleton<SceneTransitionManager>
     [SerializeField]
     private float transitionTime = 1f;
 
-    private const float MAX_SIZE = 1000f;
+    private const float MAX_SIZE = 1500f;
 
     public Action OnTransitionFinished { get; set; }
 
