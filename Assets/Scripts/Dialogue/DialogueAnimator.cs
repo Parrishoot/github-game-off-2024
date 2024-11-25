@@ -14,6 +14,8 @@ public class DialogueAnimator : MonoBehaviour
 
     public Action OnFinish; 
 
+    public Action OnLetterShown;
+
     private string currentLine;
 
     private int currentIndex = 0;
@@ -43,6 +45,7 @@ public class DialogueAnimator : MonoBehaviour
         }
 
         tmpText.text += currentLine[currentIndex++];
+        OnLetterShown?.Invoke();
 
         textTimer = new Timer(textSpeed);
         textTimer.OnTimerFinished += CheckComplete;

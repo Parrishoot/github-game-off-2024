@@ -16,19 +16,13 @@ public class PackageDeliveredTextController : Singleton<PackageDeliveredTextCont
     private float totalTime = 2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        Reset();
+    private void OnEnable() {
+        packageTransform.anchoredPosition = new Vector2(-OFFSCREEN_POS, packageTransform.anchoredPosition.y);
+        deliveredTransform.anchoredPosition = new Vector2(OFFSCREEN_POS, deliveredTransform.anchoredPosition.y);   
     }
 
     public void ShowText() {
-        
-        packageTransform.anchoredPosition = new Vector2(-OFFSCREEN_POS, packageTransform.anchoredPosition.y);
-        deliveredTransform.anchoredPosition = new Vector2(OFFSCREEN_POS, deliveredTransform.anchoredPosition.y);
-
         DOTween.Sequence()
-            .AppendCallback(() => packageTransform.gameObject.SetActive(true))
-            .AppendCallback(() => deliveredTransform.gameObject.SetActive(true))
             .Append(packageTransform.DOAnchorPosX(0f, totalTime / 4).SetEase(Ease.InOutCubic))
             .Join(deliveredTransform.DOAnchorPosX(0f, totalTime / 4).SetEase(Ease.InOutCubic))
             .AppendInterval(totalTime / 2)
@@ -39,7 +33,7 @@ public class PackageDeliveredTextController : Singleton<PackageDeliveredTextCont
     }
 
     private void Reset() {
-        packageTransform.gameObject.SetActive(false);
-        deliveredTransform.gameObject.SetActive(false);
+        packageTransform.anchoredPosition = new Vector2(-OFFSCREEN_POS, packageTransform.anchoredPosition.y);
+        deliveredTransform.anchoredPosition = new Vector2(OFFSCREEN_POS, deliveredTransform.anchoredPosition.y);
     }
 }
