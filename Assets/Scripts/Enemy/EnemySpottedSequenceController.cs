@@ -21,11 +21,17 @@ public class EnemySpottedSequenceController : MonoBehaviour
 
     void Start() {
         enemyVisionController.OnPackageSpotted += PlaySequence;
+
+        if(behaviorGraphAgent != null) {
+            SceneTransitionManager.Instance.OnTransitionOutFinished += () => behaviorGraphAgent.enabled = true;
+        }
     }
 
     private void PlaySequence() {
 
-        behaviorGraphAgent.enabled = false;
+        if(behaviorGraphAgent != null) {
+            SceneTransitionManager.Instance.OnTransitionOutFinished += () => behaviorGraphAgent.enabled = true;
+        }
 
         DialogueManager.Instance.ProcessDialogue(packageSpottedDialogue);
         waitTimer = new Timer(waitTime);

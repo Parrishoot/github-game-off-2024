@@ -50,9 +50,9 @@ public class QuestController : MonoBehaviour
 
         questGoalController.OnPackageSpotted += FinishQuest;
 
-        foreach(EnemyVisionController enemy in enemies) {
-            enemy.OnPackageSpotted += FailQuest;
-        }
+        // foreach(EnemyVisionController enemy in enemies) {
+        //     enemy.OnPackageSpotted += FailQuest;
+        // }
 
         SceneTransitionManager.Instance.OnTransitionOutFinished += CheckSpawnPackage;
     }
