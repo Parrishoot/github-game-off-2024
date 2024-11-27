@@ -8,7 +8,7 @@ public class BuildingBuilder : MonoBehaviour
     private const float BUILDING_SIZE_LENGTH = 6f * SCALE;
     private const float BUILDING_BASE_HEIGHT = 2.5f * SCALE;
     private const float BUILDING_MIDDLE_HEIGHT = 2f * SCALE;
-    private const float BUILDING_TOP_HEIGHT = 2f * SCALE;
+    private const float BUILDING_TOP_HEIGHT = 1f * SCALE;
 
     [SerializeField]
     private BoxCollider bounds;
