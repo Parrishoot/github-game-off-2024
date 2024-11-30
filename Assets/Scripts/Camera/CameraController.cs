@@ -25,12 +25,12 @@ public class CameraController : Singleton<CameraController>
         return Pivot.transform.forward;
     }
 
-    private void LockCursor() {
+    public void LockCursor() {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void UnlockCursor() {
+    public void UnlockCursor() {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
