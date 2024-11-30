@@ -17,6 +17,9 @@ public class QuestController : MonoBehaviour
     [SerializeField]
     private QuestController dependency;
 
+    [field:SerializeReference]
+    public Transform RespawnTransform { get; private set; }
+
     private List<EnemyVisionController> enemies;
 
     public PackageManager Package { get; private set; }
@@ -81,6 +84,7 @@ public class QuestController : MonoBehaviour
         SetupWatchers(packageManager);
 
         Package = packageManager;
+        Package.Quest = this;
     }
 
     private void SetupWatchers(PackageManager packageManager)

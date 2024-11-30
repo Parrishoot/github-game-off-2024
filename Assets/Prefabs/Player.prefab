@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20a019ca86e5114ab2f9875c2140e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 100
   <Pivot>k__BackingField: {fileID: 535081984137079685}
 --- !u!1 &559842760544693160
 GameObject:
@@ -62,6 +61,7 @@ GameObject:
   - component: {fileID: 1446927187555959836}
   - component: {fileID: 1927727705041612122}
   - component: {fileID: 6349197353686933903}
+  - component: {fileID: 7241333075250876374}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -186,6 +186,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 5834430169462331926}
+--- !u!114 &7241333075250876374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559842760544693160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d939f1f4e16d54247a1325c581c7e492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <RespawnLocation>k__BackingField: {fileID: 0}
+  respawnGameObject: {fileID: 559842760544693160}
 --- !u!1 &2277540921050408214
 GameObject:
   m_ObjectHideFlags: 0

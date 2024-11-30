@@ -33,6 +33,8 @@ public class PackageManager : MonoBehaviour
 
     public Action OnLost { get; set; }
 
+    public QuestController Quest { get; set; }
+
     void Start()
     {
         packageModelGameObject.transform.localScale = Vector3.zero;

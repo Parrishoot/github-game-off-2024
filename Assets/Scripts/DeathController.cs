@@ -16,7 +16,7 @@ public class DeathController : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {   
         
-        if(other.gameObject.GetComponent<PlayerMovementController>() != null) {
+        if(other.gameObject.GetComponent<RespawnController>() != null) {
             SceneTransitionManager.Instance.TransitionOut();
             return;
         }
