@@ -12,7 +12,7 @@ public class QuestGoalController : PackageWatcher
 
         TargetPackage.OnPickup += Activate;
 
-        TargetPackage.OnDrop += Deactivate;
+        TargetPackage.OnBounce += Deactivate;
         TargetPackage.OnSpotted += Deactivate;
         TargetPackage.OnLost += Deactivate;
         SceneTransitionManager.Instance.OnTransitionOutFinished += Deactivate;

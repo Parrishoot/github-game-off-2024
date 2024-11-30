@@ -33,6 +33,8 @@ public class PackageManager : MonoBehaviour
 
     public Action OnLost { get; set; }
 
+    public Action OnBounce { get; set; }
+
     public QuestController Quest { get; set; }
 
     void Start()
@@ -58,6 +60,10 @@ public class PackageManager : MonoBehaviour
         if(!gameObject.IsDestroyed()) {
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        OnBounce?.Invoke();
     }
 
     public void Lose() {
