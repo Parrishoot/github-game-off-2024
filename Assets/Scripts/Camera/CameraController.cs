@@ -11,8 +11,10 @@ public class CameraController : Singleton<CameraController>
 
 
     void Start() {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        LockCursor();
+
+        SettingsPanelController.Instance.OnClose += LockCursor;
+        SettingsPanelController.Instance.OnOpen += UnlockCursor;
     }
 
     // Update is called once per frame
@@ -24,5 +26,15 @@ public class CameraController : Singleton<CameraController>
     public Vector3 GetLookingDirection()
     {
         return Pivot.transform.forward;
+    }
+
+    private void LockCursor() {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void UnlockCursor() {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
