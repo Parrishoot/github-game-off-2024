@@ -31,6 +31,7 @@ public class EnemySpottedSequenceController : MonoBehaviour
 
         if(behaviorGraphAgent != null) {
             SceneTransitionManager.Instance.OnTransitionOutFinished += () => behaviorGraphAgent.enabled = true;
+            behaviorGraphAgent.enabled = false;
         }
 
         DialogueManager.Instance.ProcessDialogue(packageSpottedDialogue);
