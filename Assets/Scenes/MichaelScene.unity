@@ -25621,6 +25621,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 695721302731299251, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: e196962db946c9b449f9ce0077a7f11a, type: 3}
+    - target: {fileID: 695721302731299251, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e196962db946c9b449f9ce0077a7f11a, type: 3}
+    - target: {fileID: 695721302731299251, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695721302731299251, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.507
+      objectReference: {fileID: 0}
     - target: {fileID: 1412240562500502774, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
       propertyPath: m_ClearFlags
       value: 1
@@ -25704,7 +25720,7 @@ PrefabInstance:
     - target: {fileID: 7241333075250876374, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
       propertyPath: rigidbody
       value: 
-      objectReference: {fileID: 984326183}
+      objectReference: {fileID: 0}
     - target: {fileID: 7241333075250876374, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
       propertyPath: <RespawnLocation>k__BackingField
       value: 
@@ -25714,22 +25730,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
---- !u!114 &984326182 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1927727705041612122, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
-  m_PrefabInstance: {fileID: 984326181}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f80fee172d100e43ba56a7ec606b99e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!54 &984326183 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8205992122145608581, guid: 1ab203d5d20e0544dba9f19a43b21f53, type: 3}
-  m_PrefabInstance: {fileID: 984326181}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &987096020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36145,7 +36145,7 @@ PrefabInstance:
     - target: {fileID: 2724294859442376417, guid: 7652681c5f9df1443a1de3ff652bd897, type: 3}
       propertyPath: stateMachine
       value: 
-      objectReference: {fileID: 984326182}
+      objectReference: {fileID: 0}
     - target: {fileID: 3507636726632624788, guid: 7652681c5f9df1443a1de3ff652bd897, type: 3}
       propertyPath: m_IsActive
       value: 1
