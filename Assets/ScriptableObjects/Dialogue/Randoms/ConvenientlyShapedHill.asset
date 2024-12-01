@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77cbf978ac3287d4890e0ad0ae0843f7, type: 3}
-  m_Name: TutorialQuestMidQuestDialogue
+  m_Name: ConvenientlyShapedHill
   m_EditorClassIdentifier: 
   <Lines>k__BackingField:
-  - Well if it isn't my future lover, Mr. Postal Man! That's canon!
-  - 'Have you forgetten the controls? I can run them through for you again:'
-  - E to interact, Q to throw your package, WASD to move...
-  - ...Space to jump and Shift to sprint.
-  - Aren't keyboards fun?
+  - '"Conveniently Shaped Hill" is my favorite town landmark!'
+  - I do have to wonder how it got it's name?
+  - Probably because it's so conveniently shaped, I guess.

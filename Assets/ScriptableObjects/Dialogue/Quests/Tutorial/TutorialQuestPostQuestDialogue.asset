@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Lines>k__BackingField:
   - Great job, Mr. Postal Man! Now go help the people of these islands!
+  - 'Have you forgetten the controls? I can run them through for you again:'
+  - E to interact, Q to throw your package, WASD to move...
+  - ...Space to jump and Shift to sprint.
+  - Aren't keyboards fun?

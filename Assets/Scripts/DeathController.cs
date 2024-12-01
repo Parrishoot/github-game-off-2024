@@ -22,8 +22,8 @@ public class DeathController : MonoBehaviour
         }
 
         PackageManager package = other.GetComponent<PackageManager>();
+        
         if(package != null) {
-            Debug.Log("Got here!");
             package.Lose();
             return;
         }
